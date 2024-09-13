@@ -11,10 +11,10 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
 
             - name: Setup .NET
-              uses: actions/setup-dotnet@v1
+              uses: actions/setup-dotnet@v3
               with:
                   dotnet-version: "8.0.x"
 
@@ -28,12 +28,12 @@ jobs:
               run: dotnet test API/API.csproj --no-restore --verbosity normal
 
             - name: Setup Node.js
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
                   node-version: "20.17.0"
 
             - name: Install and build Angular app
               run: |
                   cd WebApp
-                  npm install
-                  npm run build -- --prod
+                  npm ci
+                  npm run build -- --configuration production
