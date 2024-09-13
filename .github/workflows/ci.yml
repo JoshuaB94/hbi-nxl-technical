@@ -1,0 +1,39 @@
+name: HBI NXL Technical CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v1
+              with:
+                  dotnet-version: "8.0.8"
+
+            - name: Restore dependencies
+              run: dotnet restore API/API.csproj
+
+            - name: Build
+              run: dotnet build API/API.csproj --configuration Release --no-restore
+
+            - name: Test
+              run: dotnet test API/API.csproj --no-restore --verbosity normal
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "20.17.0"
+
+            - name: Install and build Angular app
+              run: |
+                  cd WebApp
+                  npm install
+                  npm run build -- --prod
