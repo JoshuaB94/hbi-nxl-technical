@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Data;
 using API.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers {
@@ -25,7 +26,7 @@ namespace API.Controllers {
 
         // GET Endpoint by ID
         [HttpGet("{id}")]
-        public async aysnc Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -35,7 +36,7 @@ namespace API.Controllers {
                 return NotFound();
             }
 
-            return user;
+            return Ok(user);
         }
 
         // PUT Endpoint by ID
@@ -87,7 +88,7 @@ namespace API.Controllers {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser)), new { id = user.UserId }, user;
+            return CreatedAtAction(nameof(GetUser), new { id = user.UserId }, user);
         }
 
         // DELETE Endpoint by ID
