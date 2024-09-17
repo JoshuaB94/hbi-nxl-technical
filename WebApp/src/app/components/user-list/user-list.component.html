@@ -1,0 +1,23 @@
+<ul role="list" class="space-y-3">
+  <li
+    *ngFor="let user of users"
+    class="overflow-hidden bg-white px-4 py-4 shadow sm:rounded-md sm:px-6"
+  >
+    <span class="font-semibold">{{ user.FirstName }} {{ user.LastName }}</span>
+    <p class="text-sm text-gray-600">{{ user.City }}, {{ user.State }}</p>
+    <!-- Edit Button -->
+    <button
+      type="button"
+      class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+    >
+      Edit
+    </button>
+    <!-- View Details Button -->
+    <button
+      type="button"
+      class="rounded-md bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
+    >
+      View Details
+    </button>
+  </li>
+</ul>
