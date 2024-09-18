@@ -23,4 +23,8 @@ export class UserList {
   editUser(userId: number): void {
     this.router.navigate(['/users', userId, 'edit']);
   }
+
+  viewUserDetails(userId: number): void {
+    this.router.navigate(['/users', userId]);
+  }
 }
