@@ -6,7 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService, User } from '../../services/user.service';
 import { catchError, Observable, of, switchMap, map } from 'rxjs';
 import {
@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'user-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [FormsModule, ReactiveFormsModule, HttpClientModule, RouterLink],
   providers: [UserService],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css',
