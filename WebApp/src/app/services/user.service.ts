@@ -3,22 +3,22 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface User {
-  UserId?: number;
-  FirstName: string;
-  LastName: string;
-  Birthdate?: string;
-  PhoneNumber?: string;
-  Address?: string;
-  City?: string;
-  State?: string;
-  Zipcode?: string;
+  userId?: number;
+  firstName: string;
+  lastName: string;
+  birthdate?: string;
+  phoneNumber?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  zipcode?: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/api/users';
+  private apiUrl = 'http://localhost:5177/api/Users';
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +35,6 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${user.UserId}`, user);
+    return this.http.put<User>(`${this.apiUrl}/${user.userId}`, user);
   }
 }

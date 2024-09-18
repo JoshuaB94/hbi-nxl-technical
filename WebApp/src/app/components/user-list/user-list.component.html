@@ -1,10 +1,10 @@
-<ul role="list" class="space-y-3">
+<ul role="list" class="space-y-3 mt-10">
   <li
-    *ngFor="let user of users"
+    *ngFor="let user of users$ | async"
     class="overflow-hidden bg-white px-4 py-4 shadow sm:rounded-md sm:px-6"
   >
-    <span class="font-semibold">{{ user.FirstName }} {{ user.LastName }}</span>
-    <p class="text-sm text-gray-600">{{ user.City }}, {{ user.State }}</p>
+    <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
+    <p class="text-sm text-gray-600">{{ user.city }}, {{ user.state }}</p>
     <!-- Edit Button -->
     <button
       type="button"
