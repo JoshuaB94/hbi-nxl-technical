@@ -1,23 +1,31 @@
-<ul role="list" class="space-y-3 mt-10">
+<ul role="list" class="space-y-6 mt-10">
   <li
     *ngFor="let user of users$ | async"
-    class="overflow-hidden bg-white px-4 py-4 shadow sm:rounded-md sm:px-6"
+    class="overflow-hidden bg-slate-200 px-4 py-4 shadow sm:rounded-md sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-y-4 sm:gap-y-0"
   >
-    <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
-    <p class="text-sm text-gray-600">{{ user.city }}, {{ user.state }}</p>
-    <!-- Edit Button -->
-    <button
-      type="button"
-      class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-    >
-      Edit
-    </button>
-    <!-- View Details Button -->
-    <button
-      type="button"
-      class="rounded-md bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
-    >
-      View Details
-    </button>
+    <div class="flex flex-col gap-y-1">
+      <span class="font-semibold"
+        >{{ user.firstName }} {{ user.lastName }}</span
+      >
+      <p class="text-sm text-gray-600">{{ user.city }}, {{ user.state }}</p>
+    </div>
+    <!-- Buttons -->
+    <div class="flex justify-start sm:justify-end gap-x-3">
+      <!-- Edit Button -->
+      <button
+        type="button"
+        class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        (click)="editUser(user.userId!)"
+      >
+        Edit
+      </button>
+      <!-- View Details Button -->
+      <button
+        type="button"
+        class="rounded-md bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
+      >
+        View Details
+      </button>
+    </div>
   </li>
 </ul>

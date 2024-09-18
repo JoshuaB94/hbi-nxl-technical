@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { UserService, User } from '../../services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,7 +16,11 @@ import { Observable } from 'rxjs';
 export class UserList {
   users$: Observable<User[]>;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.users$ = userService.getUsers();
+  }
+
+  editUser(userId: number): void {
+    this.router.navigate(['/users', userId, 'edit']);
   }
 }
