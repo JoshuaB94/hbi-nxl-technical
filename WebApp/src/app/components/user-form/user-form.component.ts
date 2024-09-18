@@ -14,6 +14,7 @@ import {
   formatDateForApi,
 } from '../../helpers/date-helpers';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'user-form',
@@ -32,7 +33,8 @@ export class UserForm implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.userForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -101,14 +103,39 @@ export class UserForm implements OnInit {
               `Error ${this.isEditMode ? 'Updating' : 'Creating'} User`,
               error
             );
+            this.toastr.error(
+              `Failed to ${this.isEditMode ? 'update' : 'create'} user`,
+              'Error'
+            );
             return of(null);
           })
         )
         .subscribe((result) => {
           if (result !== null) {
+            this.toastr.success(
+              `User ${this.isEditMode ? 'updated' : 'created'} successfully`,
+              'Success'
+            );
             this.router.navigate(['/users']);
           }
         });
+    } else {
+      // Check for specific field errors
+      if (this.userForm.get('firstName')?.hasError('required')) {
+        this.toastr.error('First name is required', 'Validation Error');
+      }
+      if (this.userForm.get('lastName')?.hasError('required')) {
+        this.toastr.error('Last name is required', 'Validation Error');
+      }
+      // You can add more specific field checks here if needed
+
+      // General error message for any other validation errors
+      if (this.userForm.invalid) {
+        this.toastr.error(
+          'Please fill out all required fields',
+          'Validation Error'
+        );
+      }
     }
   }
 }

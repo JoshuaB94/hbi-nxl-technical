@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UserService, User } from '../../services/user.service';
 import { Observable, switchMap } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'user-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, HttpClientModule],
+  providers: [UserService],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.css',
 })
