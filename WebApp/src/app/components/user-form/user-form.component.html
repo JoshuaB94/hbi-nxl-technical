@@ -11,100 +11,154 @@
     </a>
   </div>
 
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-4">
-    <div>
-      <label for="firstName" class="block text-sm font-medium text-gray-700"
+  <form
+    [formGroup]="userForm"
+    (ngSubmit)="onSubmit()"
+    class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+  >
+    <div class="sm:col-span-3">
+      <label
+        for="firstName"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >First Name</label
       >
-      <input
-        type="text"
-        id="firstName"
-        formControlName="firstName"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          formControlName="firstName"
+          autocomplete="given-name"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="lastName" class="block text-sm font-medium text-gray-700"
+
+    <div class="sm:col-span-3">
+      <label
+        for="lastName"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >Last Name</label
       >
-      <input
-        type="text"
-        id="lastName"
-        formControlName="lastName"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          formControlName="lastName"
+          autocomplete="family-name"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="birthdate" class="block text-sm font-medium text-gray-700"
+
+    <div class="sm:col-span-3">
+      <label
+        for="birthdate"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >Birthdate</label
       >
-      <input
-        type="date"
-        id="birthdate"
-        formControlName="birthdate"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          id="birthdate"
+          name="birthdate"
+          type="date"
+          formControlName="birthdate"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="phoneNumber" class="block text-sm font-medium text-gray-700"
-        >Telephone Number</label
+
+    <div class="sm:col-span-3">
+      <label
+        for="phoneNumber"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Phone Number</label
       >
-      <input
-        type="tel"
-        id="phoneNumber"
-        formControlName="phoneNumber"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          id="phoneNumber"
+          name="phoneNumber"
+          type="text"
+          formControlName="phoneNumber"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="address" class="block text-sm font-medium text-gray-700"
+
+    <div class="col-span-full">
+      <label
+        for="address"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >Address</label
       >
-      <input
-        type="text"
-        id="address"
-        formControlName="address"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="address"
+          id="address"
+          formControlName="address"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="city" class="block text-sm font-medium text-gray-700"
+
+    <div class="sm:col-span-2 sm:col-start-1">
+      <label
+        for="city"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >City</label
       >
-      <input
-        type="text"
-        id="city"
-        formControlName="city"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="city"
+          id="city"
+          formControlName="city"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="state" class="block text-sm font-medium text-gray-700"
+
+    <div class="sm:col-span-2">
+      <label
+        for="state"
+        class="block text-sm font-medium leading-6 text-gray-900"
         >State</label
       >
-      <input
-        type="text"
-        id="state"
-        formControlName="state"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="state"
+          id="state"
+          formControlName="state"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <div>
-      <label for="zip" class="block text-sm font-medium text-gray-700"
-        >Zip</label
+
+    <div class="sm:col-span-2">
+      <label
+        for="zipcode"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Zipcode</label
       >
-      <input
-        type="text"
-        id="zipcode"
-        formControlName="zipcode"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
+      <div class="mt-2">
+        <input
+          type="text"
+          name="zipcode"
+          id="zipcode"
+          formControlName="zipcode"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
     </div>
-    <button
-      type="submit"
-      class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-    >
-      {{ isEditMode ? "Update" : "Create" }} User
-    </button>
   </form>
+
+  <button
+    type="submit"
+    class="w-full bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 mt-8"
+  >
+    {{ isEditMode ? "Update" : "Create" }} User
+  </button>
 </div>
