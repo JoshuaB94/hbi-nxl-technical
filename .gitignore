@@ -131,3 +131,5 @@ dist
 
 # Visual Studio Specific Settings & Cached Information
 .vs/
+/API/bin/Debug/net8.0
+/API/Migrations
